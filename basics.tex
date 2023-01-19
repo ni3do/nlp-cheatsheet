@@ -1,0 +1,22 @@
+\section{Basics}
+\subsection{Probability}
+Bayes rule: $p(y|x) = \frac{p(x|y)p(y)}{p(x)} = \frac{p(x|y)p(y)}{\int p(x|y')p(y')dy'}$\\
+$p(y|x)$ \textbf{posterior}, $p(x|y)$ \textbf{likelihood}, $p(y)$ \textbf{prior}, $p(x)$ or $\int p(x|y')p(y')dy'$ \textbf{marginal}
+\subsection{Activation Functions}
+ReLU(x): $\max(x, 0)$\\
+ReLU'(x): $\begin{cases}
+		1 & \text{if } x \geq 0 \\
+		0 & \text{if } x < 0
+	\end{cases}$\\
+Leaky ReLU(x): $\begin{cases}
+		x     & \text{if } x \geq 0 \\
+		0.01x & \text{if } x < 0
+	\end{cases}$\\
+Leaky ReLU'(x): $\begin{cases}
+		1    & \text{if } x \geq 0 \\
+		0.01 & \text{if } x < 0
+	\end{cases}$\\
+Sigmoid: $\sigma(x) = \frac{1}{1 + \exp(-x)}$\\
+$\sigma'(x) = \sigma(x)(1-\sigma(x))$\\
+Hyperbolic tangent: $\tanh(x) = \frac{\exp(x)-\exp(-x)}{\exp(x)+\exp(-x)}$\\
+$\tanh'(x) = 1 - \tanh(x)^2$

@@ -1,0 +1,10 @@
+\section{Log-Linear Models}
+Log-lin. model: $p(y|x, \theta) = \frac{1}{Z(x, \theta)} \exp(\theta f(x, y))$\\
+$\log(p(y | x, \theta)) = \theta f(x, y) + \text{const.}$\\
+where $f: \mathcal{X} \times \mathcal{Y} \rightarrow \mathbb{R}^K$ is the feature function\\
+$Z(\theta) = \sum_{y' \in \mathcal{Y}} \exp(\theta f(x, y'))$ is the partition function.\\
+MLE: $\mathcal{L}(\theta) = \sum_{n=1}^{N}\log p(y_n | x_n, \theta)$\\
+$\theta_{\text{MLE}} = \argmax_{\theta \in \Theta} \mathcal{L}(\theta)$\\
+where $\Theta$ is compact subset of $\mathbb{R}^K$\\
+$\bigtriangledown \mathcal{L}(\theta) = \sum_{i=1}^{N} f(x_n, y_n) - \sum_{n=1}^{N} \E_{Y \sim p(\cdot| x_n, \theta)} [f(x_n, Y)]$\\
+$\sum_{n \leq N} f(x_n, y_n) = \sum_{n=1}^{N} \E_{Y \sim p(\cdot | x_n, \theta)} [f(x_n, Y)]$

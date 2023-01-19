@@ -1,0 +1,4 @@
+\section{Viterbi}
+$\mathbf{t}^* = \underset{t \in \mathcal{T}^N}{\argmax} \exp(\score(\mathbf{t}, \mathbf{w})) = \underset{t \in \mathcal{T}^N}{\argmax} \prod_{n=1}^{N}\exp \{\score(\langle t_{n-1}, t_n \rangle, w)\}$\\
+\includegraphics[width=7cm]{viterbi_algo.png}
+Runtime: $\mathcal{O}(N|\mathcal{T}|^2)$, $\mathcal{O}(N |\mathcal{T}|^3)$ when considering triplets.

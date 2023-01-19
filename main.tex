@@ -1,0 +1,122 @@
+\documentclass[11pt,landscape,a4paper,fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usepackage{bbm}
+\usetikzlibrary{shapes,positioning,arrows,fit,calc,graphs,graphs.standard}
+\usepackage[nosf]{kpfonts}
+\usepackage[t1]{sourcesanspro}
+%\usepackage[lf]{MyriadPro}
+%\usepackage[lf,minionint]{MinionPro}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[top=5mm,bottom=5mm,left=5mm,right=5mm]{geometry}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{microtype}
+\usepackage{paralist} % for compacter lists
+\usepackage{bm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+
+\let\bar\overline
+
+\definecolor{myblue}{RGB}{138, 173, 244}
+\definecolor{myred}{RGB}{198, 160, 246}
+\definecolor{myorange}{RGB}{245, 189, 230}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\everymath\expandafter{\the\everymath \color{myblue}}
+%\everydisplay\expandafter{\the\everydisplay \color{myblue}}
+
+\renewcommand{\baselinestretch}{.8}
+\pagestyle{empty}
+
+\global\mdfdefinestyle{header}{%
+linecolor=gray,linewidth=1pt,%
+leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm,
+}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {.2ex}%
+                                {.2ex}%x
+	                                {\color{myred}\sffamily\small\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{1}{0mm}%
+                                {.2ex}%
+                                {.2ex}%x
+                                {\color{myorange}\sffamily\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{1}{0mm}%
+	{.2ex}%
+	{.2ex}%x
+	{\sffamily\bfseries}}
+
+
+% math helpers
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\E}{\mathbb{E}}
+
+\makeatother
+\setlength{\parindent}{0pt}
+
+\newcommand{\imp}[1]{\boxed{\boldsymbol{#1}}} % Einrahmung und Fett
+\newcommand{\w}{\omega}
+\newcommand{\ud}{\,\mathrm{d}}% Differential
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\score}{\text{score}}
+
+% compress equations
+%\medmuskip=0mu
+%\thinmuskip=0mu
+%\thickmuskip=0mu
+
+\begin{document}
+\small
+\begin{multicols*}{4}
+	\input{basics.tex}
+	\input{semirings.tex}
+	\input{loglinearmodels.tex}
+	\input{viterbi.tex}
+	\input{grammar.tex}
+	\input{cky.tex}
+
+	% -*- root: main.tex -*-
+
+
+
+
+
+
+	%		\subsection*{Regularization}
+	%	The error term $L$ and the regularization $C$ with regularization parameter $\lambda$: $\min \limits_w L(w) + \lambda C(w)$\\
+	%	L1-regularization for number of features \\
+	%	L2-regularization for the length of $w$
+
+	%	\subsection*{Convex}
+	%	$\text{g(x) is convex}$\\
+	%	$\Leftrightarrow x_1,x_2 \in \mathbb{R}, \lambda \in [0,1]:$\\
+	%	$g(\lambda x_1) + (1-\lambda x_2) \leq \lambda g(x_1) + (1-\lambda) g(x_2)$
+	%	$ \Leftrightarrow g''(x) > 0$
+
+	%	\subsection*{Parametric to nonparametric linear regression}
+	%	Ansatz: $w=\sum_i \alpha_i x$\\
+	%	Parametric: $w^* = \underset{w}{\operatorname{argmin}} \sum_i (*Tx_i-y_i)^2 + \lambda ||w||_2^2$\\
+	%	$= \underset{\alpha_{1:n}}{\operatorname{argmin}} \sum \limits_{i=1}^n (\sum \limits_{j=1}^n \alpha_j x_j^T x_i - y_i)^2 + \lambda \sum \limits_i \sum \limits_j \alpha_i \alpha_j (x_i^T x_j)$\\
+	%	$= \underset{\alpha_{1:n}}{\operatorname{argmin}} \sum \limits_{i=1}^n (\alpha^T K_i - y_i)^2 + \lambda \alpha^T K \alpha$\\
+	%	$= \underset{\alpha}{\operatorname{argmin}} ||\alpha^T K -y||_2^2 + \lambda \alpha^T K \alpha$\\
+	%	Closed form: $\alpha^* = (K+\lambda I)^{-1} y$\\
+	%	Prediction: $y^*= w^{*^T} x = \sum \limits_{i=1}^n \alpha_i ^* k(x_i,x)$
+
+\end{multicols*}
+\end{document}
